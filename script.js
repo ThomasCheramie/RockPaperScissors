@@ -18,10 +18,10 @@ the winner.
 **Use console.log to display winner with results
 **Use prompt to get input from user.
 */
-let computerChoice = null, playerChoice = null, winner = null, playerScore = 0, computerScore = 0;
+let computerChoice, playerChoice, winner, playerScore = 0, computerScore = 0;
 
-function computerSelection () {
-    let randomNum = (Math.floor(Math.random() * 9) + 1);
+function getComputerSelection () {
+    let randomNum = (Math.floor(Math.random() * 9) + 1)
     if (randomNum < 4)
         computerChoice = "ROCK";
     else if (randomNum < 7)
@@ -32,7 +32,7 @@ function computerSelection () {
     return computerChoice;
 }
 
-function playerSelection () {
+function getPlayerSelection () {
     playerChoice = prompt('Rock, Paper, Scissors...SHOOT!');
     playerChoice = playerChoice.toUpperCase();
     console.log(playerChoice);
@@ -56,10 +56,10 @@ function playRPS(computer, player) {
         return 3;
 }
 
-function game() {
+function playGame() {
     for (let i = 0; i < 5; i++) {
-        computerChoice = computerSelection();
-        playerChoice = playerSelection();
+        computerChoice = getComputerSelection();
+        playerChoice = getPlayerSelection();
         roundWinner = playRPS(computerChoice, playerChoice);
 
         if (roundWinner == 1) {
@@ -78,7 +78,7 @@ function game() {
         console.log ("Draw!");
 }
 
-game();
+playGame();
 
 
 
